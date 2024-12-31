@@ -18,6 +18,42 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Use dependency injection for better testability
 - Keep functions focused and composable
 - Optimize for readability over cleverness
+- Use automated formatting tools:
+  - Black for consistent formatting
+  - Flake8 for style and complexity checks
+  - PyLint for deeper analysis
+- Configure formatting tools properly:
+  - Match Black's line length (88 chars)
+  - Align Flake8 configuration
+  - Document any exceptions
+- Set up pre-commit hooks:
+  - Auto-format on commit
+  - Block on unfixable issues
+  - Provide clear error messages
+- Configure IDE integration:
+  - Format on save
+  - Real-time linting
+  - Consistent settings
+
+## Code Style Management
+
+- Follow team's style guide religiously
+- Use automated tools for consistency:
+  - Run Black before committing
+  - Address Flake8 warnings
+  - Fix PyLint issues systematically
+- Handle special cases:
+  - Document formatting exceptions
+  - Use inline ignores sparingly
+  - Maintain override documentation
+- Consider cross-platform:
+  - Standardize line endings
+  - Handle path separators
+  - Maintain consistent encoding
+- Manage configurations:
+  - Keep tool versions in sync
+  - Update configs systematically
+  - Document decisions
 
 ## API Client Implementation
 
@@ -37,6 +73,7 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Implement appropriate caching strategies
 - Consider async/concurrent processing where beneficial
 - Monitor and optimize resource usage
+- Consider formatting impact on CI/CD
 
 ## Security
 
@@ -60,6 +97,8 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Test error handling paths thoroughly
 - Verify timeout and retry mechanisms
 - Test with invalid/malformed inputs
+- Verify formatting compliance
+- Test cross-platform behavior
 
 ## Best Practices
 
@@ -71,6 +110,10 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Implement proper logging with appropriate levels
 - Use structured logging for better debugging
 - Handle platform-specific issues gracefully
+- Maintain consistent code style
+- Follow automated formatting rules
+- Document style exceptions
+- Keep tools updated
 
 ## Communication
 
@@ -79,3 +122,6 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Communicate technical decisions effectively
 - Mentor junior developers
 - Collaborate with other teams effectively
+- Document style decisions
+- Share formatting knowledge
+- Report tool issues
