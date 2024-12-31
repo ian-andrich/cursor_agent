@@ -7,7 +7,6 @@ from rich.console import Console
 
 from .registry import ToolRegistry
 
-
 console = Console()
 registry = ToolRegistry()
 
@@ -24,7 +23,7 @@ def list_tools():
     """List all available tools."""
     tools = registry.get_available_tools()
     console.print("\n[bold]Available Tools:[/bold]\n")
-    
+
     for tool in tools:
         console.print(f"[green]{tool.name}[/green]: {tool.description}")
 
@@ -37,26 +36,22 @@ def run(tool_name: str, args: Optional[tuple] = None):
     try:
         tool = registry.get_tool(tool_name)
         kwargs = {}
-        
+
         if args:
             # Convert args to kwargs (format: key=value)
             for arg in args:
                 if "=" in arg:
                     key, value = arg.split("=", 1)
                     kwargs[key] = value
-        
+
         result = asyncio.run(tool.execute(**kwargs))
-        console.print(
-            f"\n[bold green]Result:[/bold green] {result}\n"
-        )
-        
+        console.print(f"\n[bold green]Result:[/bold green] {result}\n")
+
     except KeyError:
-        console.print(
-            f"[bold red]Error:[/bold red] Tool '{tool_name}' not found"
-        )
+        console.print(f"[bold red]Error:[/bold red] Tool '{tool_name}' not found")
     except Exception as e:
         console.print(f"[bold red]Error:[/bold red] {str(e)}")
 
 
 if __name__ == "__main__":
-    main() 
+    main()

@@ -33,4 +33,9 @@ cursor-tools = "cursor_tools.cli:main"
 "Bug Tracker" = "https://github.com/yourusername/cursor_agent/issues"
 
 [tool.hatch.build.targets.wheel]
-packages = ["cursor_tools"] 
+packages = ["cursor_tools"]
+
+[tool.black]
+line-length = 88
+target-version = ['py37']
+include = '\.pyi?$' 
