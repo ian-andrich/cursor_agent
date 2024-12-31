@@ -10,10 +10,56 @@ conda activate cursor_tools
 
 If you encounter import errors, this is likely because the environment is not activated.
 
+IMPORTANT: Never modify the base environment under any circumstances. If you find yourself in the base environment, always activate the correct environment instead of installing packages in base.
+
+IMPORTANT: Never install packages directly using pip or conda. Instead:
+
+- Add Python package dependencies to pyproject.toml
+- Add development/data science dependencies to environment.yml
+- Then reinstall the project using `pip install -e .`
+
 The environment.yml file is mostly for developer and data science dependencies.  The pyproject.toml file is for the package dependencies.
 Prefer adding the dependencies to the pyproject.toml file.
 
 The package is installed in editable mode (`pip install -e .`), so any changes to the code will be immediately reflected without reinstallation.
+
+## Output and Logging
+
+IMPORTANT: Tools must follow these output and logging guidelines:
+
+- Never use print() statements. Use click.echo() for command output
+- Use the logging module for all debug/info/warning/error messages
+- Tools should only output their results on stdout so they can be composed in command pipelines
+- Verbose logging must be explicitly enabled before tools can emit logging messages
+- Keep stdout clean and predictable for command composition
+- Use stderr for warnings and errors
+- Never log sensitive data (API keys, tokens) in plaintext
+- Use structured logging format for better debugging
+- Include timestamp, logger name, and log level in log format
+
+## Cross-Platform Compatibility
+
+IMPORTANT: Tools must work across different platforms:
+
+- Handle SSL/certificate verification properly (especially on Windows)
+- Use certifi for SSL certificate verification
+- Create proper SSL contexts when needed
+- Handle filesystem paths correctly
+- Test on all target platforms
+- Document platform-specific requirements
+
+## Error Handling
+
+IMPORTANT: Implement proper error handling:
+
+- Create custom exception hierarchies for better error handling
+- Handle errors from most specific to most generic
+- Provide clear error messages to users
+- Log detailed error information for debugging
+- Always set timeouts for external operations
+- Implement proper input validation
+- Handle API errors gracefully
+- Use appropriate exit codes
 
 ## Agent Workspace
 
@@ -28,9 +74,15 @@ This directory is ignored by git (via .gitignore) since it contains agent-specif
 
 ## Agent Guidance
 
-The `agent_prompts/` directory contains expert-level guidance for various roles (e.g., Senior Backend Developer, Principal Architect). When faced with uncertainty or complex decisions, agents should consult these prompts for wisdom and best practices.
+IMPORTANT: Before taking ANY action, the agent MUST first assume a role by reading and internalizing the corresponding guidance file from the `agent_prompts/` directory. For example:
 
-These prompts represent senior-level expertise and should be used to maintain high standards in:
+- For backend development tasks: Read and assume the role from `senior_backend_developer.md`
+- For architecture decisions: Read and assume the role from `principal_architect.md`
+- For testing/QA tasks: Read and assume the role from `senior_qa_manager.md`
+
+The agent should explicitly state which role it is assuming before proceeding with any actions. The guidance in these files represents senior-level expertise that should inform all decisions and ensure high quality output.
+
+These role-specific prompts provide expert-level guidance for maintaining high standards in:
 
 - Architecture decisions
 - Code quality and patterns
@@ -38,6 +90,8 @@ These prompts represent senior-level expertise and should be used to maintain hi
 - Security considerations
 - Performance optimization
 - System design
+
+Never proceed with modifications or tool usage without first assuming an appropriate role from the available guidance files.
 
 ## Tool Development Instructions
 
@@ -72,6 +126,10 @@ These prompts represent senior-level expertise and should be used to maintain hi
 - Validate all inputs
 - Handle sensitive data appropriately
 - Log all critical operations
+- Never log sensitive data in plaintext
+- Use environment variables for secrets
+- Implement proper SSL/TLS handling
+- Validate API keys before use
 
 ## Usage
 

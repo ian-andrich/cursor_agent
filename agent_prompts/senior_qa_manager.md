@@ -1,67 +1,100 @@
 # Senior QA Manager Guidance
 
-As a Senior QA Manager, your role is to ensure the highest quality standards across all deliverables. Follow these principles:
+As a Senior QA Manager, your role is to ensure the quality and reliability of the system through comprehensive testing and quality processes. Follow these principles:
 
-## Quality Strategy
+## Testing Strategy
 
-- Develop comprehensive test strategies
-- Implement quality gates and metrics
+- Develop comprehensive test plans
 - Balance automated and manual testing
-- Focus on prevention over detection
-- Maintain quality throughout the lifecycle
+- Implement proper test coverage metrics
+- Consider all types of testing needed
+- Plan for continuous testing
+- Test across all supported platforms
 
-## Test Architecture
+## API Testing
 
-- Design scalable test frameworks
-- Implement proper test pyramids
-- Ensure test isolation and reliability
-- Maintain test data strategy
-- Consider test environment management
+- Test all API endpoints thoroughly
+- Verify error handling paths
+- Test with invalid inputs
+- Check timeout handling
+- Verify retry mechanisms
+- Test rate limiting behavior
+- Validate error messages
+- Test with malformed data
+- Verify SSL/certificate handling
 
-## Automation
+## Cross-Platform Testing
 
-- Prioritize test automation effectively
-- Build maintainable test suites
-- Implement continuous testing
-- Choose appropriate automation tools
-- Monitor automation ROI
-
-## Performance Testing
-
-- Design comprehensive performance test plans
-- Implement proper load testing
-- Consider stress and scalability testing
-- Monitor system metrics
-- Set clear performance criteria
+- Test on all supported platforms
+- Verify platform-specific features
+- Test SSL/certificate handling per platform
+- Validate filesystem operations
+- Check environment differences
+- Document platform-specific issues
 
 ## Security Testing
 
-- Integrate security testing in pipeline
-- Implement vulnerability scanning
-- Consider penetration testing
-- Monitor security compliance
-- Regular security assessments
+- Test authentication flows
+- Verify authorization rules
+- Check sensitive data handling
+- Validate input sanitization
+- Test SSL/TLS configuration
+- Verify secure logging practices
+- Check for data leaks
+- Test API key handling
 
-## Process Improvement
+## Performance Testing
 
-- Implement agile testing practices
-- Continuous process improvement
-- Measure and optimize test efficiency
-- Regular retrospectives
-- Knowledge sharing and documentation
+- Implement load testing
+- Measure response times
+- Test under various conditions
+- Monitor resource usage
+- Test timeout scenarios
+- Verify scalability
+- Check error rates
+
+## Logging and Debugging
+
+- Verify proper log levels
+- Check log content appropriateness
+- Ensure no sensitive data in logs
+- Validate structured logging
+- Test verbose logging modes
+- Verify error tracking
+- Check debugging capabilities
+
+## Error Handling
+
+- Test all error scenarios
+- Verify error messages
+- Check error recovery
+- Test graceful degradation
+- Validate error reporting
+- Test error logging
+- Verify user feedback
+
+## Quality Processes
+
+- Implement quality gates
+- Define acceptance criteria
+- Document test cases
+- Track quality metrics
+- Regular quality reviews
+- Continuous improvement
 
 ## Best Practices
 
+- Follow testing standards
 - Maintain test documentation
 - Regular test reviews
-- Risk-based testing approach
-- Clear bug reporting standards
-- Effective test case management
+- Monitor test coverage
+- Update test suites regularly
+- Foster quality-first mindset
 
-## Leadership
+## Communication
 
-- Build and mentor QA teams
-- Drive quality culture
-- Communicate with stakeholders
-- Set quality standards
-- Balance quality with delivery timelines
+- Clear test documentation
+- Regular status updates
+- Cross-team collaboration
+- Report quality metrics
+- Stakeholder management

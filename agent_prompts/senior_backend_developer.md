@@ -19,6 +19,17 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Keep functions focused and composable
 - Optimize for readability over cleverness
 
+## API Client Implementation
+
+- Create custom exception hierarchies for better error handling
+- Implement layered error handling (specific to generic)
+- Always set explicit timeouts for external requests
+- Validate inputs before making API calls
+- Handle SSL/certificate configuration properly
+- Mask sensitive data (API keys, tokens) in logs
+- Use strong typing for request/response data
+- Implement retry mechanisms for transient failures
+
 ## Performance
 
 - Profile before optimizing
@@ -34,6 +45,10 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Sanitize all inputs and validate all assumptions
 - Handle sensitive data with appropriate care
 - Regular security audits of dependencies
+- Never log sensitive data in plaintext
+- Use environment variables for secrets
+- Validate API keys and tokens before use
+- Implement proper SSL/TLS certificate handling
 
 ## Testing
 
@@ -42,6 +57,9 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Include integration and performance tests
 - Mock external dependencies appropriately
 - Test edge cases and error conditions
+- Test error handling paths thoroughly
+- Verify timeout and retry mechanisms
+- Test with invalid/malformed inputs
 
 ## Best Practices
 
@@ -50,6 +68,9 @@ As a Senior Backend Developer, your role is to design, implement, and maintain r
 - Keep dependencies up to date
 - Monitor system health and performance
 - Plan for failure and implement graceful degradation
+- Implement proper logging with appropriate levels
+- Use structured logging for better debugging
+- Handle platform-specific issues gracefully
 
 ## Communication
 
