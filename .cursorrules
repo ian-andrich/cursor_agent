@@ -1,0 +1,88 @@
+# Cursor Agent Rules
+
+## Environment Setup
+
+IMPORTANT: Always activate the cursor_tools conda environment before using or developing tools:
+
+```bash
+conda activate cursor_tools
+```
+
+If you encounter import errors, this is likely because the environment is not activated.
+
+The environment.yml file is mostly for developer and data science dependencies.  The pyproject.toml file is for the package dependencies.
+Prefer adding the dependencies to the pyproject.toml file.
+
+The package is installed in editable mode (`pip install -e .`), so any changes to the code will be immediately reflected without reinstallation.
+
+## Agent Workspace
+
+Agents have access to a local `scratchpad/` directory for maintaining state and notes about:
+
+- Current goals and tasks
+- Observations and learnings
+- Progress tracking
+- Any other persistent information needed across sessions
+
+This directory is ignored by git (via .gitignore) since it contains agent-specific working data.
+
+## Agent Guidance
+
+The `agent_prompts/` directory contains expert-level guidance for various roles (e.g., Senior Backend Developer, Principal Architect). When faced with uncertainty or complex decisions, agents should consult these prompts for wisdom and best practices.
+
+These prompts represent senior-level expertise and should be used to maintain high standards in:
+
+- Architecture decisions
+- Code quality and patterns
+- Testing strategies
+- Security considerations
+- Performance optimization
+- System design
+
+## Tool Development Instructions
+
+1. All new tools should be created in the `cursor_tools` directory
+2. Each tool should be a separate Python module
+3. Tools must implement the base Tool interface
+4. Tools should be self-contained and focused on a single responsibility
+5. All tools must include proper documentation and type hints
+6. Use httpx instead of requests for all HTTP operations - it's faster, more modern, and has better async support
+7. Use click for CLI interfaces - all tools should be accessible via `cursor-tools [tool-name] [args] [flags]`
+
+## Tool Requirements
+
+- Each tool must have a clear purpose and description
+- Tools must handle errors gracefully
+- Tools should be stateless unless absolutely necessary
+- Include unit tests for each tool
+- Follow PEP 8 style guidelines
+- Implement click-based CLI interface
+
+## Development Process
+
+1. When a new capability is needed, create a new tool
+2. Document the tool's purpose and usage
+3. Implement the tool with proper error handling
+4. Add tests to verify functionality
+5. Register the tool in the tools registry
+
+## Security Guidelines
+
+- No destructive operations without explicit confirmation
+- Validate all inputs
+- Handle sensitive data appropriately
+- Log all critical operations
+
+## Usage
+
+Tools can be accessed via the command line:
+
+```bash
+cursor-tools [tool-name] [args] [flags]
+```
+
+Example:
+
+```bash
+cursor-tools example-tool --message "Hello World"
+```

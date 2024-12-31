@@ -1,0 +1,19 @@
+name: cursor_tools
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.8
+  - pip
+  - pytest
+  - black
+  - flake8
+  - mypy
+  - typing_extensions
+  - pip:
+      - aiohttp
+      - httpx
+      - pydantic
+      - python-dotenv
+      - rich
+      - click
